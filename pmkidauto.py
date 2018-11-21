@@ -2,6 +2,8 @@
 
 ### By whiteFly ###
 
+###  thank's to kcdtv for describing the use of wpa_supplicant here: https://www.wifi-libre.com/topic-1144-revolucion-en-el-crack-wpa-ataque-por-diccionario-contra-pmkid-page-2.html#p11773
+
 import subprocess
 import re
 import sys
