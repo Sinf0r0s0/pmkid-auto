@@ -41,13 +41,15 @@ if scan is None:
 if timeout is None:
     timeout = '15'    
 
+stop_supp = ('systemctl stop wpa_supplicant.service').split()
+start_supp = ('systemctl start wpa_supplicant.service').split()
 wlan_mac = ('cat /sys/class/net/' + interface + '/address').split()
-commsupp = ('timeout ' + scan + ' wpa_supplicant -c wpa_supp.conf -i ' + interface + ' -dd').split()
+commsupp = ('timeout ' + scan + ' wpa_supplicant -c wpa_supp.conf -i ' + interface + ' -dd').split()#  using timeout, just works...
 commsupp2 = ('timeout ' + timeout + ' wpa_supplicant -c wpa_supp.conf -i ' + interface + ' -dd').split()
 
 wpa_supp = "wpa_supp.conf"
-hashcatfile = 'hashcat16800.hash'  # change here hashcat file location
-potfile = 'pmkidGetCat.potfile'  # change here hashcat potfile location
+hashcatfile = 'hashcat16800.hash'  # change here hashcat file name/location
+potfile = 'pmkidGetCat.potfile'  # change here hashcat potfile name/location
 
 
 def run_command(command):
@@ -142,12 +144,14 @@ def to_brute(pmkid, msg, essid, sem):
 
         sem.release()
 
+print("[!] pymkidGetCat Running...\n")
 
 f_works(wpa_supp, "")
+
+run_command(stop_supp)
+
 aps = []
 name_mac ={} 
-
-print("[!] pymkidGetCat Running...\n")
 
 for line in run_command(commsupp):
     line = line.strip()
@@ -205,5 +209,7 @@ for ess_id in name_mac:
     else:
         print("[!] Timeout, AP: " + ess_id + " is farway or not vulnerable.\n")
         continue
+
+run_command(start_supp)
 
 f_works(wpa_supp, "")
