@@ -25,6 +25,6 @@ help:
     -i INTERFACE_TO_USE  wlan interface
     -w WORDLIST_FILE     wordlist file
     -s SCAN_TIME         AP scaning time (default 5 seconds)
-     -t TIME_OUT          timeout to retrieve PMKID (default 15 seconds)
+    -t TIME_OUT          timeout to retrieve PMKID (default 15 seconds)
 
 
