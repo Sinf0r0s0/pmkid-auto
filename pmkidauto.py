@@ -49,7 +49,7 @@ commsupp2 = ('timeout ' + timeout + ' wpa_supplicant -c wpa_supp.conf -i ' + int
 
 wpa_supp = "wpa_supp.conf"
 hashcatfile = 'hashcat16800.hash'  # change here hashcat file name/location
-potfile = 'pmkidGetCat.potfile'  # change here hashcat potfile name/location
+potfile = 'pmkidauto.potfile'  # change here hashcat potfile name/location
 
 
 def run_command(command):
