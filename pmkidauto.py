@@ -97,7 +97,7 @@ def hcl():
         line = line.strip()
 
         if 'selected BSS' in line:
-            macap = (line[23:][:17].replace(":", ""))
+            macap = (line.split()[3].replace(":", ""))
 
         if 'PMKID from' in line:
             pmkid = (line[49:].replace(" ", ""))
