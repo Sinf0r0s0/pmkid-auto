@@ -146,7 +146,7 @@ def to_brute(pmkid, msg, essid, sem):
 
         sem.release()
 
-print("[!] pymkidGetCat Running...\n")
+print("[!] pmkidauto Running...\n")
 
 f_works(wpa_supp, "")
 
