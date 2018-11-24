@@ -4,7 +4,7 @@ Python script to automate capture of PMKID hashes, based on wpa_supplicant
 
 This attack was discovered by the creator of Hashcat @jsteube, described here: https://hashcat.net/forum/thread-7717.html
 
-This script uses wpa_suplicant debug mode to retrieve pmkid from each scanned AP end using a (very slow) internal cracker to recover the PSK password.
+This script uses the debug mode wpa_suplicant to retrieve pmkid from each parsed AP, and simultaneously uses an internal (very slow) cracker to retrieve the PSK password.
 
 The program creates 3 files:
 
