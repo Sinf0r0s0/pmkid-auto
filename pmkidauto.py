@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-### By whiteFly ###
+### By Sinf0r0s0 ###
 
 ###  thank's to kcdtv for describing the use of wpa_supplicant here: https://www.wifi-libre.com/topic-1144-revolucion-en-el-crack-wpa-ataque-por-diccionario-contra-pmkid-page-2.html#p11773
 
