@@ -26,7 +26,7 @@ The program creates 3 files:
 
     sudo pip3 install git+git://github.com/Sinf0r0s0/pmkid-auto.git
     or
-    sudo pip3 install --upgrade https://https://github.com/Sinf0r0s0/pmkid-auto/tarball/master
+    sudo pip3 install --upgrade https://github.com/Sinf0r0s0/pmkid-auto/tarball/master
     
 
 ## usage
