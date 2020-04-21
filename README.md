@@ -35,7 +35,7 @@ The program creates 3 files:
 
 Once installed, simply call **pmkidauto** from the command line as superuser:
 
-    sudo pmkidauto -i wlan0 -w tiny.txt
+    sudo pmkidauto -i wlan0 -w tiny_wordlist.txt
     
 Use the optional **-s** flags to set the APs **--scan_time** and **-t** for the PMKID hash recovery **--time_out**.
 The defaults are scan_time=7  and time_out=15
