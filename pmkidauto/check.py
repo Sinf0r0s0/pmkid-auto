@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+#-*- coding: latin1 -*-
 from hashlib import pbkdf2_hmac, sha1
 import binascii
 
@@ -18,7 +18,7 @@ class Check:
         self._data = binascii.a2b_hex('504d4b204e616d65' + self.mac_ap + self.mac_cli)
     
     def check_pass(self, passwd):
-        pmk = pbkdf2_hmac(hash_name='sha1', password=bytes(passwd, 'utf-8'), salt=self.essid, iterations=4096,
+        pmk = pbkdf2_hmac(hash_name='sha1', password=bytes(passwd, 'latin1'), salt=self.essid, iterations=4096,
                           dklen=32) + com
         _o_pad = pmk.translate(t5c)
         _i_pad = pmk.translate(t36)
