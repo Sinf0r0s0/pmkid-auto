@@ -1,6 +1,6 @@
 # pmkid-auto
 
-Automate capture of PMKID hashes, based on wpa_supplicant manager.
+Automates the capture and crack of PMKID hashes, based on wpa_supplicant manager.
 
 **Without using monitor mode**, runs on any Debian-based distro or architecture like laptops with internal wifi, rooted smartphones (using Termux / NetHunter) or raspberry pi.
 And of course with a usb dongle.
