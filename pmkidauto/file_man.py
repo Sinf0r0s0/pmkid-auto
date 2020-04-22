@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: latin1 -*-
 def try_open_read_file(f_name, mode=None):
     try:
         #  read all text
@@ -7,8 +7,8 @@ def try_open_read_file(f_name, mode=None):
         #  just open
         else:
             try:
-                return open(f_name)
-            except FileNotFoundError as err:
+                return open(f_name, encoding='latin1')
+            except (FileNotFoundError, UnicodeDecodeError) as err:
                 print(err)
                 exit(1)
     except FileNotFoundError:
