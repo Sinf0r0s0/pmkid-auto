@@ -1,3 +1,4 @@
+# -*- coding: latin1 -*-
 import multiprocessing as mp
 import os
 import subprocess
@@ -19,18 +20,17 @@ class Auto:
     _stop_supp = ['systemctl', 'stop', 'wpa_supplicant.service']
     _start_supp = ['systemctl', 'start', 'wpa_supplicant.service']
 
-    def __init__(self, my_interface: str,
+    def __init__(self, interface: str,
                  wordlist='',
                  scan_time='7',
                  time_out='15',
                  hash_file='hashes.22000',
                  pot_file='found.potfile'):
 
-        self._wlan_mac = ['cat', f'/sys/class/net/{my_interface}/address']
-        self._commsupp = ['timeout', scan_time, 'wpa_supplicant', '-c', 'wpa_supp.conf', '-i', my_interface,
+        self._wlan_mac = ['cat', f'/sys/class/net/{interface}/address']
+        self._commsupp = ['timeout', scan_time, 'wpa_supplicant', '-c', 'wpa_supp.conf', '-i', interface,
                           '-dd']  # using timeout, just works...
-        self._commsupp2 = ['timeout', time_out, 'wpa_supplicant', '-c', 'wpa_supp.conf', '-i', my_interface,
-                           '-dd']
+        self._commsupp2 = ['timeout', time_out, 'wpa_supplicant', '-c', 'wpa_supp.conf', '-i', interface, '-dd']
         self.hash_file = hash_file
         self.pot_file = pot_file
         self.wordlist = wordlist
@@ -74,7 +74,6 @@ class Auto:
                 fm.create_write_file(self.pot_file, to_potfile, 'a+')
                 self._sem.release()
                 return
-
         print(f'[!] AP "{essid_name}" wordlist exhausted')
         self._sem.release()
 
